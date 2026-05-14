@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/* Aquí puedes agregar variables CSS personalizadas si luego las necesitas */
+:root {
+  --brand-primary: #8b5cf6; /* Un tono morado/espiritual de ejemplo */
+}
