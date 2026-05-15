@@ -1,4 +1,3 @@
-// src/components/sections/Contact.jsx
 import { useState } from "react";
 
 export default function Contact() {
@@ -12,7 +11,7 @@ export default function Contact() {
     const formData = new FormData(form);
 
     try {
-      // Recuerda poner aquí tu enlace de Formspree
+      // AQUÍ VA TU ENLACE DE FORMSPREE
       const response = await fetch("https://formspree.io/f/mykoqjzn", {
         method: "POST",
         body: formData,
@@ -37,7 +36,7 @@ export default function Contact() {
   return (
     <section id="contacto" className="py-24 bg-slate-900 scroll-mt-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span className="text-cyan-400 font-bold tracking-wider uppercase text-sm mb-2 block">
+        <span className="text-amber-400 font-bold tracking-wider uppercase text-sm mb-2 block">
           Trabajemos Juntos
         </span>
         <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6">
@@ -52,9 +51,7 @@ export default function Contact() {
           onSubmit={handleSubmit}
           className="max-w-2xl mx-auto text-left space-y-6 bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-2xl"
         >
-          {/* Cuadrícula de 2 columnas para balancear los campos */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* 1. Nombre */}
             <div>
               <label
                 htmlFor="name"
@@ -67,12 +64,11 @@ export default function Contact() {
                 id="name"
                 name="name"
                 required
-                className="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none transition-all"
+                className="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-all"
                 placeholder="Ej. Mi Restaurante"
               />
             </div>
 
-            {/* 2. Correo */}
             <div>
               <label
                 htmlFor="email"
@@ -85,12 +81,11 @@ export default function Contact() {
                 id="email"
                 name="email"
                 required
-                className="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none transition-all"
+                className="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-all"
                 placeholder="hola@empresa.com"
               />
             </div>
 
-            {/* 3. Teléfono (NUEVO) */}
             <div>
               <label
                 htmlFor="phone"
@@ -102,12 +97,11 @@ export default function Contact() {
                 type="tel"
                 id="phone"
                 name="phone"
-                className="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none transition-all"
+                className="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-all"
                 placeholder="Ej. 33 1234 5678"
               />
             </div>
 
-            {/* 4. Servicio */}
             <div>
               <label
                 htmlFor="service"
@@ -119,7 +113,7 @@ export default function Contact() {
                 id="service"
                 name="service"
                 required
-                className="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none transition-all"
+                className="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-all"
               >
                 <option value="" className="text-slate-500">
                   Selecciona una opción...
@@ -136,7 +130,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Mensaje de texto (Ocupa todo el ancho) */}
           <div>
             <label
               htmlFor="message"
@@ -149,7 +142,7 @@ export default function Contact() {
               name="message"
               required
               rows="4"
-              className="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none transition-all resize-none"
+              className="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-all resize-none"
               placeholder="Cuéntame más sobre tu proyecto..."
             ></textarea>
           </div>
@@ -157,7 +150,7 @@ export default function Contact() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="w-full bg-cyan-500 text-slate-950 font-bold py-4 rounded-lg hover:bg-cyan-400 transition-colors shadow-lg hover:shadow-cyan-500/25 disabled:opacity-70 disabled:cursor-not-allowed"
+            className="w-full bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-bold py-4 rounded-lg hover:from-amber-300 hover:to-yellow-400 transition-colors shadow-lg hover:shadow-amber-500/25 disabled:opacity-70 disabled:cursor-not-allowed"
           >
             {status === "loading" ? "Enviando mensaje..." : "Enviar Mensaje"}
           </button>

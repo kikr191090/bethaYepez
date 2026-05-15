@@ -1,15 +1,13 @@
-// src/components/sections/VideoFeed.jsx
 import { YoutubeIcon, PlayIcon, LINKS } from "../ui/Icons";
 import { useYouTubeVideos } from "../../hooks/useYouTubeVideos";
 
 export default function VideoFeed() {
-  // Llamamos a nuestro nuevo hook basado en RSS
   const { videos, loading, error } = useYouTubeVideos(6);
 
   return (
     <section
       id="ultimos-videos"
-      className="py-24 px-4 max-w-7xl mx-auto scroll-mt-20 border-b border-slate-800"
+      className="py-24 px-4 max-w-7xl mx-auto scroll-mt-20"
     >
       <div className="flex flex-col sm:flex-row items-center justify-between mb-12 gap-4">
         <div>
@@ -31,14 +29,12 @@ export default function VideoFeed() {
         </a>
       </div>
 
-      {/* Animación de Carga */}
       {loading && (
         <div className="flex justify-center items-center h-48">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-500"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500"></div>
         </div>
       )}
 
-      {/* Mensaje de Error (si falla el internet, por ejemplo) */}
       {error && (
         <div className="text-center text-red-400 bg-red-950/30 border border-red-900/50 p-6 rounded-2xl">
           <p className="font-medium mb-2">
@@ -48,14 +44,13 @@ export default function VideoFeed() {
             href={LINKS.youtube}
             target="_blank"
             rel="noreferrer"
-            className="text-cyan-400 hover:underline"
+            className="text-amber-400 hover:underline"
           >
             Visita el canal directamente haciendo clic aquí.
           </a>
         </div>
       )}
 
-      {/* Grid de Videos */}
       {!loading && !error && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {videos.map((video) => (
@@ -64,13 +59,12 @@ export default function VideoFeed() {
               href={video.url}
               target="_blank"
               rel="noreferrer"
-              className="group cursor-pointer rounded-2xl overflow-hidden shadow-sm hover:shadow-cyan-900/20 hover:shadow-2xl transition-all border border-slate-800 bg-slate-900 block relative"
+              className="group cursor-pointer rounded-2xl overflow-hidden shadow-sm hover:shadow-amber-900/20 hover:shadow-2xl transition-all border border-slate-800 bg-slate-900 block relative"
             >
-              <div className="relative overflow-hidden aspect-video">
+              <div className="relative overflow-hidden aspect-video border-b border-slate-800">
                 <img
                   src={video.thumbnail}
                   onError={(e) => {
-                    // Si el video no tiene miniatura 4K, cargamos la estándar
                     e.target.src = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
                   }}
                   alt={video.title}
@@ -78,15 +72,14 @@ export default function VideoFeed() {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
-                  <div className="bg-cyan-500 rounded-full p-4 text-slate-950 shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
+                  <div className="bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full p-4 text-slate-950 shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
                     <PlayIcon />
                   </div>
                 </div>
               </div>
 
               <div className="p-6">
-                <h3 className="font-semibold text-lg text-slate-200 line-clamp-2 leading-snug group-hover:text-cyan-400 transition-colors">
-                  {/* Limpiamos caracteres raros que a veces trae el RSS */}
+                <h3 className="font-semibold text-lg text-slate-200 line-clamp-2 leading-snug group-hover:text-amber-400 transition-colors">
                   {video.title
                     .replace(/&quot;/g, '"')
                     .replace(/&#39;/g, "'")
