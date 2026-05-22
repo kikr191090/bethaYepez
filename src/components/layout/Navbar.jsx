@@ -16,9 +16,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <a href="#inicio" className="flex items-center">
-            <span className="text-2xl font-bold text-white tracking-tight">
-              Bertha Yepez
-            </span>
+            
+            {/* Logo Flotante (Hanging Badge) */}
+            <img 
+              src="/logo-bertha.png"
+              alt="Logo Bertha Yepez Podcast"
+              style={{ clipPath: 'circle(48%)' }}
+              // h-24 y h-32 lo hacen grande. translate-y lo empuja hacia abajo para que "cuelgue" de la barra
+              className="h-24 md:h-32 w-auto rounded-full shadow-xl group-hover:scale-110 transition-transform duration-300  translate-y-3 md:translate-y-6"
+            />
           </a>
 
           <div className="hidden md:flex items-center space-x-8">

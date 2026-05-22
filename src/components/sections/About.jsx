@@ -7,7 +7,7 @@ export default function About() {
         <div className="w-full md:w-1/2">
           <div className="aspect-[4/5] md:aspect-square rounded-[2rem] bg-slate-800 overflow-hidden shadow-2xl shadow-amber-900/10 relative border border-slate-700">
             <img
-              src="https://placehold.co/800x1000/1e293b/fbbf24?text=Foto+Profesional"
+              src="/foto-bertha.jpeg"
               alt="Bertha Yepez en cabina o grabando"
               className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
             />
